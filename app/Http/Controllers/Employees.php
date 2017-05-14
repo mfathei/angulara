@@ -16,9 +16,9 @@ class Employees extends Controller {
      */
     public function index($id = null) {
         if ($id == null) {
-            return Employee::orderBy('id', 'asc')->get();
+            return response(Employee::orderBy('id', 'asc')->get());
         } else {
-            return $this->show($id);
+            return response($this->show($id));
         }
     }
 
@@ -37,7 +37,7 @@ class Employees extends Controller {
         $employee->position = $request->input('position');
         $employee->save();
 
-        return 'Employee record successfully created with id ' . $employee->id;
+        return response('Employee record successfully created with id ' . $employee->id);
     }
 
     /**
