@@ -1,4 +1,7 @@
 app.controller('employeesController', function ($scope, $http, API_URL) {
+
+
+
     //retrieve employees listing from API
     $http.get(API_URL + "employees")
         .success(function (response) {
@@ -27,7 +30,7 @@ app.controller('employeesController', function ($scope, $http, API_URL) {
         }
         console.log(id);
         $('#myModal').modal('show');
-    }
+    };
 
     //save new record / update existing record
     $scope.save = function (modalstate, id) {
@@ -50,7 +53,7 @@ app.controller('employeesController', function ($scope, $http, API_URL) {
             console.log(response);
             alert('This is embarassing. An error has occured. Please check the log for details');
         });
-    }
+    };
 
     //delete record
     $scope.confirmDelete = function (id) {
@@ -69,5 +72,12 @@ app.controller('employeesController', function ($scope, $http, API_URL) {
         } else {
             return false;
         }
-    }
+    };
+
+    $scope.init = function(){
+        $scope.app_name = APP_MODULE;
+    };
+
+    // call constructor
+    $scope.init();
 });

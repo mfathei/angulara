@@ -13,7 +13,7 @@
 
 
 Route::get('/', function () {
-    return view('index');
+    return view('emps.index');
 });
 
 Route::get('/api/v1/employees/{id?}', 'Employees@index');
